@@ -1,6 +1,7 @@
 # Micro J Basic References 
 
 [![Release](https://jitpack.io/v/mjcro/references.svg)](https://jitpack.io/#mjcro/references)
+[![CircleCI](https://circleci.com/gh/mjcro/references/tree/main.svg?style=svg)](https://circleci.com/gh/mjcro/references/tree/main)
 
 Zero-dependency collection of basic reference interfaces
 
