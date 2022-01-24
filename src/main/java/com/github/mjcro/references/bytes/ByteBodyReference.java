@@ -1,5 +1,7 @@
 package com.github.mjcro.references.bytes;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
@@ -46,5 +48,12 @@ public interface ByteBodyReference {
      */
     default String getBodyString() {
         return this.getBodyString(StandardCharsets.UTF_8);
+    }
+
+    /**
+     * @return Entity body as {@link InputStream}.
+     */
+    default InputStream getBodyInputStream() {
+        return new ByteArrayInputStream(getBody());
     }
 }
