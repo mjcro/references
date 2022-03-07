@@ -27,7 +27,7 @@ Then add dependency:
 
 ```xml
 <dependency>
-    <groupId>com.github.mjcro</groupId>
+    <groupId>io.github.mjcro</groupId>
     <artifactId>references</artifactId>
     <version><!-- Latest version --></version>
 </dependency>
