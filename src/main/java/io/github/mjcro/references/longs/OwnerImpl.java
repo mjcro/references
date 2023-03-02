@@ -1,17 +1,15 @@
 package io.github.mjcro.references.longs;
 
 import java.util.Objects;
-import java.util.OptionalLong;
+import java.util.Optional;
 
 class OwnerImpl<T extends Enum<T>> implements Owner<T> {
     private final T type;
-    private final long id;
-    private final boolean idPresent;
+    private final Long id;
 
-    OwnerImpl(T type, long id, boolean idPresent) {
+    OwnerImpl(T type, Long id) {
         this.type = Objects.requireNonNull(type, "type");
         this.id = id;
-        this.idPresent = idPresent;
     }
 
     @Override
@@ -20,8 +18,8 @@ class OwnerImpl<T extends Enum<T>> implements Owner<T> {
     }
 
     @Override
-    public OptionalLong getId() {
-        return idPresent ? OptionalLong.of(id) : OptionalLong.empty();
+    public Optional<Long> getId() {
+        return Optional.ofNullable(id);
     }
 
     @Override
@@ -29,7 +27,7 @@ class OwnerImpl<T extends Enum<T>> implements Owner<T> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OwnerImpl<?> owner = (OwnerImpl<?>) o;
-        return getId() == owner.getId() && idPresent == owner.idPresent && getType().equals(owner.getType());
+        return getId() == owner.getId() && Objects.equals(this.getId(), owner.getId());
     }
 
     @Override
@@ -39,7 +37,7 @@ class OwnerImpl<T extends Enum<T>> implements Owner<T> {
 
     @Override
     public String toString() {
-        return idPresent
+        return id != null
                 ? "OwnerImpl{type=" + type + ", id=" + id + '}'
                 : "OwnerImpl{type=" + type + '}';
     }

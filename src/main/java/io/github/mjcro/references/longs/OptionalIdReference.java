@@ -2,17 +2,18 @@ package io.github.mjcro.references.longs;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
-import java.util.OptionalLong;
 
 public interface OptionalIdReference {
-    OptionalLong getId();
+    /**
+     * @return Identifier of entity.
+     */
+    Optional<Long> getId();
 
+    /**
+     * @return Identifier of entity.
+     * @throws NoSuchElementException if entity has no identifier.
+     */
     default long mustGetId() throws NoSuchElementException {
-        return getId().getAsLong();
-    }
-
-    default Optional<Long> getIdBoxed() {
-        OptionalLong id = getId();
-        return id.isPresent() ? Optional.of(id.getAsLong()) : Optional.empty();
+        return getId().get();
     }
 }

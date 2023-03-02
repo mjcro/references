@@ -38,5 +38,8 @@ public interface ScopeIdReference {
         return ref -> ref != null && ref.getScopeId() == expectedScopeId;
     }
 
+    /**
+     * @return Scope identifier of entity
+     */
     long getScopeId();
 }
