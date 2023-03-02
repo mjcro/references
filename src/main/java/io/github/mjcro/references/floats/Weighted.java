@@ -5,7 +5,7 @@ package io.github.mjcro.references.floats;
  *
  * @param <T> Relation target.
  */
-public interface Weighted<T> {
+public interface Weighted<T> extends WeightReference {
     /**
      * Constructs new weighted relation.
      *
@@ -22,21 +22,4 @@ public interface Weighted<T> {
      * @return Relation target.
      */
     T getData();
-
-    /**
-     * @return Relation weight.
-     */
-    float getWeight();
-
-    /**
-     * Compares weight of current object and given one.
-     *
-     * @param other Other weighted relation object to compare weight with.
-     * @return Comparison result.
-     */
-    default int compareWeightTo(Weighted<?> other) {
-        return other == null
-                ? -1
-                : Float.compare(getWeight(), other.getWeight());
-    }
 }
