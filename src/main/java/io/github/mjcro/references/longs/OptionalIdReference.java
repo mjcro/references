@@ -10,6 +10,13 @@ public interface OptionalIdReference {
     Optional<Long> getId();
 
     /**
+     * @return True if identifier is present.
+     */
+    default boolean hasId() {
+        return getId().isPresent();
+    }
+
+    /**
      * @return Identifier of entity.
      * @throws NoSuchElementException if entity has no identifier.
      */
