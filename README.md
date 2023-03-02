@@ -13,6 +13,6 @@ Zero-dependency collection of basic reference interfaces
 <dependency>
     <groupId>io.github.mjcro</groupId>
     <artifactId>references</artifactId>
-    <version>2.0.4</version>
+    <version>2.0.3</version>
 </dependency>
 ```
